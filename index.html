@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LG 회의실 예약 시스템</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    
+    <!-- favicon -->
+	<link rel="shortcut icon" href="img/favicon.ico">
+    
+    <!-- css 추가 -->
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/fontawesome.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    
+    <!-- js 추가 -->
+    <script src="js/jquery.1.12.3.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/fontawsome.js"></script>
+</head>
+<body>
+
+<!-- header S -->
+<header id="id-header" class="class-header class-clearfix class-fixed">
+    <div class="class-logoWrap">
+        <h1 id="id-logo" class="class-logo">
+            <a href="#">LG</a>
+        </h1>
+    </div>
+    
+    <div class="class-dateWrap">
+        <p>
+            <span>2018.08.09</span>
+            <span>&#40;목&#41;</span>
+            <span>09:33</span>
+        </p>
+    </div>
+</header>
+<!-- header E -->
+
+<!-- container S -->
+<section id="id-container" class="class-container">
+    <div class="class-content">
+        <h2>
+            <strong>LG회의실</strong>
+            예약시스템
+        </h2>
+        
+        <div class="class-formWrap">
+            <form id="id-login">
+                <input type="text" name="userID" placeholder="USER ID">
+                
+                <input type="password" name="userPW" placeholder="PASSWORD">
+                
+                <div class="class-cleafix class-findWrap">
+                    <p>
+                        <input type="checkbox" id="id-remember" name="rememberID">
+                        <label for="id-remember">
+                            <span class="class-iconCk">
+                                <i class="fas fa-check"></i>
+                            </span>
+                            Remember my ID
+                        </label>
+                    </p>
+                    
+                    <p>
+                        <a href="#">Forgot Password?</a>
+                    </p>
+                </div>
+                
+                <input type="submit" form="id-login" class="class-btnLogin" value="LOGIN">
+                
+                <div class="class-clearfix class-resiWrap">
+                    <a href="#">Register</a>
+                    <a href="#">Change Password</a>
+                </div>
+            </form>
+        </div>
+        <!-- formWrap E -->
+    </div>
+    <!-- content E -->
+</section>
+<!-- container E -->
+
+<!-- footer S -->
+<footer id="id-footer" class="class-footer class-fixed">
+    <small class="class-copy">Copyright&copy; 2018. LG Electronics. All rights reserved</small>
+</footer>
+<!-- footer E -->
+
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LG 회의실 예약 시스템</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    
+    <!-- favicon -->
+	<link rel="shortcut icon" href="img/favicon.ico">
+    
+    <!-- css 추가 -->
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/fontawesome.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    
+    <!-- js 추가 -->
+    <script src="js/jquery.1.12.3.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/fontawsome.js"></script>
+</head>
+<body>
+
+<!-- header S -->
+<header id="id-header" class="class-header class-clearfix class-fixed">
+    <div class="class-nameWrap">
+        <h1 id="id-username" class="class-username">사용자 이름</h1>
+    </div>
+    
+    <div class="class-dateWrap">
+        <p>
+            <span>2018.08.09</span>
+            <span>&#40;목&#41;</span>
+            <span>09:33</span>
+        </p>
+    </div>
+</header>
+<!-- header E -->
+
+<!-- aside S -->
+<aside id="id-gnb" class="class-gnb">
+    <nav>
+        <ul>
+            <!-- ↓ 메뉴 활성화 class="class-act" -->
+            <li>
+                <a href="#">회의실 예약 현황</a>
+            </li>
+            <li class="class-act">
+                <a href="#">회의실 예약</a>
+            </li>
+            <li>
+                <a href="#">예약 취소</a>
+            </li>
+        </ul>
+    </nav>
+</aside>
+<!-- aside E -->
+
+<!-- container S -->
+<section id="id-container" class="class-container">
+    <div class="class-content class-main class-clearfix">
+        <div class="class-wrap class-select">
+            <!-- button 클릭시 아래 ul에 addClass'class-on' -->
+            <button class="class-btnSelect">
+                회의실선택
+                <b><i class="fas fa-caret-down"></i></b>
+            </button>
+            
+            <ul class="class-selectList class-on">
+                <!-- ↓ 이미 예약 완료된 회의실이면 li에 class-disable 추가 -->
+                <li class="class-disable">
+                    <input type="checkbox" id="id-select01">
+                    <label for="id-select01">
+                        <span><i class="fas fa-check"></i></span>
+                        회의실 이름1
+                    </label>
+                </li>
+                <li>
+                    <input type="checkbox" id="id-select02">
+                    <label for="id-select02">
+                        <span><i class="fas fa-check"></i></span>
+                        회의실 이름2
+                    </label>
+                </li>
+                <li>
+                    <input type="checkbox" id="id-select03">
+                    <label for="id-select03">
+                        <span><i class="fas fa-check"></i></span>
+                        회의실 이름3회의실 이름3회의실 이름3
+                    </label>
+                </li>
+                <li class="class-disable">
+                    <input type="checkbox" id="id-select04">
+                    <label for="id-select04">
+                        <span><i class="fas fa-check"></i></span>
+                        회의실 이름4
+                    </label>
+                </li>
+            </ul>
+        </div>
+        <!-- select E -->
+        
+        <div class="class-wrap class-tableInfo">
+            <form id="id-reservation">
+                <ul class="class-clearfix">
+                    <li>
+                        <h4>신청자</h4>
+                        <input type="text" name="name-username" placeholder="신청자 이름을 입력하세요.">
+                    </li>
+                    <li>
+                        <h4>회의날짜</h4>
+                        <input type="text" name="name-date" id="id-date">
+                        <script>
+                            $("#id-date").datepicker({ dateFormat: 'yy-mm-dd' });
+                        </script>
+                    </li>
+                    <li>
+                        <h4>회의시간</h4>
+                        <!-- ↓ 클릭시 class-reservationPOP에 addClass="class-on" -->
+                        <input type="button" class="class-time" value="00:00 ~ 00:00">
+                    </li>
+                </ul>
+                
+                <div>
+                    <h4>회의제목</h4>
+                    <input type="text" name="name-title" placeholder="회의의 주제 또는 제목을 입력하세요.">
+                </div>
+                
+                <input type="submit" class="class-btnsubmit" value="예약하기">
+            </form>
+            <!-- form E -->
+            
+            <div class="class-noticeWrap class-clearfix">
+                <h3>NOTICE</h3>
+                <p class="class-notice">회의실 이용 후 청소 해 주세요</p>
+            </div>
+            <!-- noticeWrap E -->
+        </div>
+        <!-- tableInfo E -->
+    </div>
+    <!-- content E -->
+    
+    <!-- reservationPOP S -->
+    <div class="class-reservationPOP">
+        <div class="class-popinner">
+            <div class="class-poptitle class-clearfix">
+                <h4>회의실 시간 예약</h4>
+                <p>선택한 회의실 이름</p>
+            </div>
+            
+            <div class="class-tableInfo">
+                <form id="id-formTime">
+                    <ul class="class-tableheading">
+                        <li>
+                            <p>&nbsp;</p>
+                            <p class="class-title">시간</p>
+                            <p>신청자</p>
+                        </li>
+                    </ul>
+                    <!-- tableheading E -->
+
+                    <ul class="class-tableinner">
+                        <!-- ↓ 비활성화 되는 라인에 class-disable 추가 -->
+                        <li class="class-disable">
+                            <p>
+                                <!-- ↓ class-disable 시 checked -->
+                                <input type="checkbox" id="id-check001" checked="checked">
+                                <label for="id-check001">
+                                    <b><i class="fas fa-check"></i></b>
+                                </label>
+                            </p>
+                            <p class="class-title">09:00 ~ 10:30</p>
+                            <p>레오니다스</p>
+                        </li>
+                        <li>
+                            <p>
+                                <input type="checkbox" id="id-check002">
+                                <label for="id-check002">
+                                    <b><i class="fas fa-check"></i></b>
+                                </label>
+                            </p>
+                            <p class="class-title">10:30 ~ 11:00</p>
+                            <p>시세로</p>
+                        </li>
+                        <li>
+                            <p>
+                                <input type="checkbox" id="id-check003">
+                                <label for="id-check003">
+                                    <b><i class="fas fa-check"></i></b>
+                                </label>
+                            </p>
+                            <p class="class-title">11:00 ~ 11:30</p>
+                            <p>레오니다스</p>
+                        </li>
+                        <li>
+                            <p>
+                                <input type="checkbox" id="id-check004">
+                                <label for="id-check004">
+                                    <b><i class="fas fa-check"></i></b>
+                                </label>
+                            </p>
+                            <p class="class-title">11:30 ~ 12:00</p>
+                            <p>시세로</p>
+                        </li>
+                        <li>
+                            <p>
+                                <input type="checkbox" id="id-check005">
+                                <label for="id-check005">
+                                    <b><i class="fas fa-check"></i></b>
+                                </label>
+                            </p>
+                            <p class="class-title">13:00 ~ 13:30</p>
+                            <p>레오니다스</p>
+                        </li>
+                        <li>
+                            <p>
+                                <input type="checkbox" id="id-check006">
+                                <label for="id-check006">
+                                    <b><i class="fas fa-check"></i></b>
+                                </label>
+                            </p>
+                            <p class="class-title">13:30 ~ 14:00</p>
+                            <p>시세로</p>
+                        </li>
+                        <li>
+                            <p>
+                                <input type="checkbox" id="id-check007">
+                                <label for="id-check007">
+                                    <b><i class="fas fa-check"></i></b>
+                                </label>
+                            </p>
+                            <p class="class-title">14:00 ~ 14:30</p>
+                            <p>레오니다스</p>
+                        </li>
+                        <li>
+                            <p>
+                                <input type="checkbox" id="id-check008">
+                                <label for="id-check008">
+                                    <b><i class="fas fa-check"></i></b>
+                                </label>
+                            </p>
+                            <p class="class-title">14:30 ~ 15:00</p>
+                            <p>시세로</p>
+                        </li>
+                        <li>
+                            <p>
+                                <input type="checkbox" id="id-check008">
+                                <label for="id-check008">
+                                    <b><i class="fas fa-check"></i></b>
+                                </label>
+                            </p>
+                            <p class="class-title">14:30 ~ 15:00</p>
+                            <p>시세로</p>
+                        </li>
+                        <li>
+                            <p>
+                                <input type="checkbox" id="id-check008">
+                                <label for="id-check008">
+                                    <b><i class="fas fa-check"></i></b>
+                                </label>
+                            </p>
+                            <p class="class-title">14:30 ~ 15:00</p>
+                            <p>시세로</p>
+                        </li>
+                    </ul>
+                    <!-- tableinner E -->
+                    
+                    <div class="class-btnWrap">
+                        <button class="class-btnCancel">취소</button>
+                        <button type="submit" class="class-btnComplate">확인</button>
+                    </div>
+                </form>
+            </div>
+            <!-- tableInfo E -->
+        </div>
+        <!-- popinner E -->
+    </div>
+    <!-- reservationPOP E -->
+</section>
+<!-- container E -->
+
+<!-- footer S -->
+<footer id="id-footer" class="class-footer class-fixed">
+    <small class="class-copy">Copyright&copy; 2018. LG Electronics. All rights reserved</small>
+</footer>
+<!-- footer E -->
+
+</body>
+</html>
